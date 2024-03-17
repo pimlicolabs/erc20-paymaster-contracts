@@ -1,16 +1,15 @@
 // SPDX-License-Identifier: GPL-3.0
 pragma solidity ^0.8.23;
 
-import "@account-abstraction/contracts/core/BasePaymaster.sol";
-import "@account-abstraction/contracts/core/EntryPoint.sol";
-import "@account-abstraction/contracts/core/Helpers.sol";
-import "@account-abstraction/contracts/core/UserOperationLib.sol";
-import "@account-abstraction/contracts/interfaces/PackedUserOperation.sol";
-import "@openzeppelin/contracts/token/ERC20/extensions/IERC20Metadata.sol";
-import "@openzeppelin/contracts/utils/cryptography/EIP712.sol";
-import "@openzeppelin/contracts/utils/cryptography/SignatureChecker.sol";
-import "./interfaces/IOracle.sol";
-import "./utils/SafeTransferLib.sol";
+import {BasePaymaster} from "@account-abstraction/contracts/core/BasePaymaster.sol";
+import {IEntryPoint} from "@account-abstraction/contracts/core/EntryPoint.sol";
+import {_packValidationData} from "@account-abstraction/contracts/core/Helpers.sol";
+import {UserOperationLib} from "@account-abstraction/contracts/core/UserOperationLib.sol";
+import {PackedUserOperation} from "@account-abstraction/contracts/interfaces/PackedUserOperation.sol";
+import {IERC20Metadata, IERC20} from "@openzeppelin/contracts/token/ERC20/extensions/IERC20Metadata.sol";
+import {SignatureChecker} from "@openzeppelin/contracts/utils/cryptography/SignatureChecker.sol";
+import {IOracle} from "./interfaces/IOracle.sol";
+import {SafeTransferLib} from "./utils/SafeTransferLib.sol";
 
 using UserOperationLib for PackedUserOperation;
 
